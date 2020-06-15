@@ -53,6 +53,15 @@ prod profile
 $ curl -ik --cert clientBob.crt --key clientBob.key "https://yourdomain.com"
 ```
 
+##Cadeia de certificado
+
+Cadeia de certificado utilizada para a truststore. Certificados disponíveis em https://www.iti.gov.br/repositorio/84-repositorio/489-certificados-das-acs-da-icp-brasil-arquivo-unico-compactado
+
+- ICP-Brasilv5.crt
+- ICP-Brasilv2.crt
+- rootCA.crt (para teste com clientBob.p12)
+- actest.cer (para teste com certificado_23446147292.pfx)
+
 ## TODO
 
 - Certbot automatic renewal
