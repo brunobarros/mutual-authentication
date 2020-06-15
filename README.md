@@ -29,11 +29,11 @@ or
 $ ./mvnw spring-boot:run 
 ```
 
-##Server certificate
+## Server certificate
 
 See https://www.baeldung.com/x-509-authentication-in-spring-security.
 
-##Client certificate (e-CPF)
+## Client certificate (e-CPF)
 
 Gerar certificados de teste (A3) para autenticação na aplicação via certificado do cliente (e-CPF).
 
@@ -53,7 +53,7 @@ prod profile
 $ curl -ik --cert clientBob.crt --key clientBob.key "https://yourdomain.com"
 ```
 
-##Cadeia de certificado
+## Cadeia de certificado
 
 Cadeia de certificado utilizada para a truststore. Certificados disponíveis em https://www.iti.gov.br/repositorio/84-repositorio/489-certificados-das-acs-da-icp-brasil-arquivo-unico-compactado
 
