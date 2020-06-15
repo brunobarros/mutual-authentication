@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Autenticação com e-CPF</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+	<style type="text/css">
+		body {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		h3 {
+			margin-top: 2rem;
+		}
+
+		.row {
+			margin-bottom: 1rem;
+		}
+		.row .row {
+			margin-top: 1rem;
+			margin-bottom: 0;
+		}
+
+		hr {
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		
+		<div class="float-right">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" />
+			</form>
+		</div>
+
+		<h1>SSL mutual authentication (X.509 Spring Boot Spring Security authentication demo)</h1>
+		<h2>Autenticação com e-CPF (https://www.iti.gov.br/icp-brasil). Pode ser adaptado para e-CNPJ.</h2>
+		
+		<p class="lead">
+			Você entrou com: 
+			<strong th:if="${cpf != null}">certificado digital</strong>
+			<strong th:if="${cpf == null}">senha</strong>
+		</p>
+		<dl class="row">
+			<dt class="col-sm-2">Nome do usuário:</dt>
+			<dd class="col-sm-10" th:text="${username}"></dd>
+			
+			<dt class="col-sm-2" th:if="${cpf != null}">CPF:</dt>
+			<dd class="col-sm-10" th:if="${cpf != null}" th:text="${cpf}"></dd>
+			
+			<dt class="col-sm-2" th:if="${email != null}">Email:</dt>
+			<dd class="col-sm-10" th:if="${email != null}" th:text="${email}"></dd>
+		</dl>
+
+		<p th:if="${credentials != null}">X.509 Certificate:</p>
+		<pre th:text="${credentials}"></pre>
+
+	</div>
+	<!-- /container -->
+</body>
+</html>
