@@ -18,11 +18,10 @@ public class X509CertificateUtils {
     
     private static Logger log = LoggerFactory.getLogger(X509CertificateUtils.class);
 
-    @SuppressWarnings("unchecked")
 	public static String getOIDFromX509Certificate(X509Certificate cert) throws CertificateParsingException, IOException {
         Collection<List<?>> sans = X509ExtensionUtil.getSubjectAlternativeNames(cert);
         log.info("Read X509 SANs " + sans);
-        for (List<?> san : sans) {
+        for (List san : sans) {
 
             log.info("Read X509 SAN " + san);
             int sanType = (int) san.get(0);
@@ -89,11 +88,10 @@ public class X509CertificateUtils {
 		return null;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static String getEmailFromSanX509Certificate(X509Certificate cert) throws CertificateParsingException {
 		Collection<List<?>> sans = X509ExtensionUtil.getSubjectAlternativeNames(cert);
 		log.info("Read X509 SANs " + sans);
-		for (List<?> san : sans) {
+		for (List san : sans) {
 
 			log.info("Read X509 SAN " + san);
 			int sanType = (int) san.get(0);
